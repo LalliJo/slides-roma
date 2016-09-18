@@ -1,0 +1,25 @@
+\documentclass[10pt]{beamer}
+
+\input{preamble}
+\input{frontpage}
+
+
+\begin{document}
+  {\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/title-background.pdf}}%
+  \maketitle}
+
+  % Main Body % % % % % % % %
+  \input{frames/1_introduzione}
+  \input{frames/2_ipotesi}
+  \input{frames/3_metodo}
+  \input{frames/4_risultati}
+  \input{frames/5_conclusioni}
+
+  % Slide Bib % % % % % % % %
+  %\begin{frame}[allowframebreaks,plain]{References}
+  \begin{frame}[plain]{\alert{References}}
+  \label{frm:reference}
+    \printbibliography[heading=none]
+  \end{frame}
+
+\end{document}

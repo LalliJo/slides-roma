@@ -1,0 +1,30 @@
+\resizebox {\linewidth} {!} {
+
+\begin{tikzpicture}[font=\small]
+  \begin{axis}[
+      ybar,
+      bar width=25pt,
+      xlabel={Stile~Cognitivo},
+      ylabel={Media~Revisite},
+      ymin=0,
+      ytick=\empty,
+      xtick=data,
+      axis x line=bottom,
+      axis y line=left,
+      enlarge x limits=0.2,
+      symbolic x coords={Landmark, Route, Survey},
+      xticklabel style={anchor=base,yshift=-\baselineskip},
+      nodes near coords,
+      scaled y ticks=false,
+      every node near coord/.style={/pgf/number format/fixed}
+    ]
+      \addplot[fill=gray!40,  name nodes near coords=apex] coordinates {
+        (Landmark, 0.900)
+        (Route, 0.333)
+        (Survey, 0.067)
+      };
+ \end{axis}
+ \draw (apex-0) -- +(0,1) -- +(4.9,1) node[pos=0.5,anchor=south] {$p < 0.05$} -- (apex-last);
+\end{tikzpicture}
+
+}

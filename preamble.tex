@@ -1,0 +1,61 @@
+%  ___                    _    _
+% | _ \_ _ ___ __ _ _ __ | |__| |___
+% |  _/ '_/ -_) _` | '  \| '_ \ / -_)
+% |_| |_| \___\__,_|_|_|_|_.__/_\___|
+
+% Theme % % % % % % % %
+\usetheme{metropolis}
+
+% Packages % % % % % % % %
+% \usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{array}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+\usepackage[italian]{babel}
+\usepackage{csquotes}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{italian}{italian-apa}
+
+% Styles % % % % % % % %
+% Bibliography Style Override
+\addbibresource{reference.bib}
+\renewcommand*{\bibfont}{\scriptsize}
+\setbeamertemplate{bibliography item}{\faBook}
+% Secondo lo stile descritto in: https://it.bul.sbu.usi.ch/learning/apa_date
+
+\usepackage{fontawesome}
+
+% Plot Configurations
+\pgfplotsset{
+  name nodes near coords/.style={
+    every node near coord/.append style={
+      name=#1-\coordindex,
+      alias=#1-last,
+    },
+  },
+  name nodes near coords/.default=coordnode,
+  compat=newest,
+  xlabel near ticks,
+  ylabel near ticks,
+}
+
+%% Title page
+\setbeamertemplate{title page}{%
+  \begin{minipage}[b][\paperheight]{\textwidth}
+    \vspace*{0.5cm}
+    \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+    \vspace*{0.5cm}%
+    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+    %\usebeamertemplate*{title separator}
+    \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+    %\ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+    \vspace*{0.25cm}
+    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+    \vfill
+    \vspace*{1mm}
+  \end{minipage}
+}
